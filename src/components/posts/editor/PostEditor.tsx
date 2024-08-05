@@ -12,9 +12,9 @@ import { useDropzone } from "@uploadthing/react";
 import { ImageIcon, Loader2, X } from "lucide-react";
 import Image from "next/image";
 import { ClipboardEvent, useRef } from "react";
+import { useSubmitPostMutation } from "./mutation";
 import "./styles.css";
 import useMediaUpload, { Attachment } from "./useMediaUpload";
-import { useSubmitPostMutation } from "./mutation";
 
 export default function PostEditor() {
   const { user } = useSession();
