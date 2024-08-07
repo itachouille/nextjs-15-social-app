@@ -1,5 +1,3 @@
-//"use client"
-
 import { PostData } from "@/lib/types";
 import { useState } from "react";
 import { useSubmitCommentMutation } from "./mutations";
