@@ -8,7 +8,7 @@ import {
 import { UserData } from "@/lib/types";
 import {
   updateUserProfileSchema,
-  updateUserProfileValues,
+  UpdateUserProfileValues,
 } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -43,7 +43,7 @@ export default function EditProfileDialog({
   open,
   onOpenChange,
 }: EditProfileDialogProps) {
-  const form = useForm<updateUserProfileValues>({
+  const form = useForm<UpdateUserProfileValues>({
     resolver: zodResolver(updateUserProfileSchema),
     defaultValues: {
       displayName: user.displayName,
@@ -55,7 +55,7 @@ export default function EditProfileDialog({
 
   const [croppedAvatar, setCroppedAvatar] = useState<Blob | null>(null);
 
-  async function onSubmit(values: updateUserProfileValues) {
+  async function onSubmit(values: UpdateUserProfileValues) {
     const newAvatarFile = croppedAvatar
       ? new File([croppedAvatar], `avatar_${user.id}.webp`)
       : undefined;
